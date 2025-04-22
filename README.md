@@ -223,6 +223,8 @@ the timeout ("config.vm.boot_timeout") value.
 
 **Зайдем в Virtialbox и убедимся, что на **pxeclient** запустилась сетевая установка Ubintu в ручном режиме:**     
      
+![image](https://github.com/user-attachments/assets/b326ce83-3451-4071-9424-6b6f0c5822c5)
+     
 ![image](https://github.com/user-attachments/assets/1af08c16-9f2d-4ab0-ad32-47372057663c)
 
 ### 4. Настроить автоматическую установку c помощью файла user-data     
