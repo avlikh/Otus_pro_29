@@ -19,11 +19,11 @@ Vagrant.configure("2") do |config|
   
       # Запуск Ansible
       server.vm.provision "ansible" do |ansible|
-        ansible.playbook = "provision.yml"  # Путь к Playbook
-        ansible.config_file = "ansible.cfg" # Файл конфигурации Ansible
-        ansible.become = true                       # Использование sudo
-        ansible.limit = "all"                       # Применение ко всем узлам
-        ansible.extra_vars = { "ansible_tags" => "pxe_manual" } # Добавляем тег
+        ansible.playbook = "provision.yml"     # Путь к Playbook
+        ansible.config_file = "ansible.cfg"    # Файл конфигурации Ansible
+        ansible.become = true                  # Использование sudo
+        ansible.limit = "all"                  # Применение ко всем узлам
+        ansible.tags = "pxe_manual"            # Добавляем тег
       end
     end
   
