@@ -1,0 +1,58 @@
+---
+
+# Далее идут шаги по настроке автоматической установки Linux:
+
+  - name: Ensure /srv/ks directory exists
+    ansible.builtin.file:
+      path: /srv/ks
+      state: directory
+      mode: '0755'
+
+  - name: copy /srv/ks/user-data
+    template:
+      src: user-data.j2
+      dest: /srv/ks/user-data
+      owner: root
+      group: root
+      mode: 0644
+
+  - name: Create /srv/ks/meta-data file
+    file:
+      path: /srv/ks/meta-data
+      state: touch
+      mode: '0644'
+
+  - name: Create /srv/ks/vendor-data file
+    file:
+      path: /srv/ks/vendor-data
+      state: touch
+      mode: '0644'
+
+  - name: copy /etc/apache2/sites-available/ks-server.conf
+    template:
+      src: ks-server.conf.j2
+      dest: /etc/apache2/sites-available/ks-server.conf
+      owner: root
+      group: root
+      mode: 0644
+
+  - name: copy /srv/tftp/amd64/pxelinux.cfg/default
+    template:
+      src: default.j2
+      dest: /srv/tftp/amd64/pxelinux.cfg/default
+      owner: root
+      group: root
+      mode: 0644
+
+  - name: Restart dnsmasq service
+    ansible.builtin.systemd:
+      name: dnsmasq
+      state: restarted
+      enabled: yes
+
+  - name: Restart apache2 service
+    ansible.builtin.systemd:
+      name: apache2
+      state: restarted
+      enabled: yes
+...

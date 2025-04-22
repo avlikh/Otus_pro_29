@@ -1,0 +1,17 @@
+---
+- name: PXE manual install
+  hosts: pxeserver
+  gather_facts: yes
+  become: yes
+  roles:
+    - pxe_manual
+  tags: pxe_manual
+
+- name: PXE Autoconfig
+  hosts: pxeserver
+  gather_facts: yes
+  become: yes
+  roles:
+    - pxe_auto
+  tags: pxe_auto
+...
