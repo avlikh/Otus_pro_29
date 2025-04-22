@@ -31,7 +31,7 @@ apt update -y && apt install git -y ; git clone https://github.com/avlikh/Otus_p
 ```
 vagrant up
 ```
-Результатом выполнения команды vagrant up станет созданные 2 виртуальные машины **pxeserver** (Ubuntu 22.04) и **pxeclient** (стартующий по сети).   
+Результатом выполнения команды **vagrant up** станут созданные 2 виртуальные машины **pxeserver** (Ubuntu 22.04) и **pxeclient** (стартующий по сети).   
 
 ---
 ### 2. Настроить загрузку по сети дистрибутива Ubuntu 22**   
